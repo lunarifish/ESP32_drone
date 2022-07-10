@@ -1,9 +1,8 @@
-from typing import Union
 import pygame
 import os
 
 class AttitudeIndicator:
-    def __init__(self, window_size: Union[tuple[2], list[2]], assets_path: str):
+    def __init__(self, window_size, assets_path: str):
         self.window_size = window_size
         self.canvas = pygame.display.set_mode(window_size)
 
