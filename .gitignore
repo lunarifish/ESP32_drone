@@ -1,1 +1,3 @@
 *.psd
+esp32/.pio
+esp32/.vscode
