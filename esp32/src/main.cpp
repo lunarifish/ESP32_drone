@@ -9,8 +9,9 @@
 #include <Adafruit_BMP280.h>
 #include "Motor.h"
 #include <PID.h>
-#include "SerialModule.h"
+#include "CommModule.h"
 
+#include "MiscFunctions.h"
 #include "TaskCycles.h"
 
 
@@ -36,21 +37,9 @@ void setup() {
     setCpuFrequencyMhz(240);
     Serial.begin(115200);
 
-    // Initialize serial communication module
-    // serialInit();
-    
 
-    // Initialize I2C devices (MPU6050, BMP280)
-    // I2C_BUS_0.setPins(MPU6050_SDA_PIN, MPU6050_SCL_PIN);
-    // I2C_BUS_1.setPins(BMP280_SDA_PIN, BMP280_SCL_PIN);
-    //I2C_BUS_0.begin();
-    // I2C_BUS_1.begin();
-    // mpu.begin();
-    // if (!bmp.begin(0x76)) {
-    //     Serial.println("Barometer initialization failed");
-    //     while (true);
-    // }
-    // mpu.calcGyroOffsets(true);
+    // commInit();                     // Initialize communication module
+    // initI2CDevices();               // Initialize I2C devices (MPU6050, BMP280)
 
 
     // Initialize motors
@@ -60,7 +49,7 @@ void setup() {
     motor1.arm();
     motor2.arm();
     motor3.arm();
-    
+
     // Flash! I'm done initialization lol
     led.blink(2, 100);
 
@@ -68,28 +57,14 @@ void setup() {
     // Create threads
     // xTaskCreatePinnedToCore(taskCycle1, "Thread-1", 10000, NULL, 1, NULL, 0);
     // xTaskCreatePinnedToCore(taskCycle2, "Thread-2", 10000, NULL, 1, NULL, 1);
-    motor0.setThrottle(400);
-    motor1.setThrottle(400);
-    motor2.setThrottle(400);
-    motor3.setThrottle(400);   
+    motor0.setThrottle(1000);
+    motor1.setThrottle(1000);
+    motor2.setThrottle(1000);
+    motor3.setThrottle(1000);
 }
 
-uint16_t i;
+
 void loop() {
- 
-    // for (i = 200; i <= 400; i++) {
-    //     motor0.setThrottle(i);
-    //     motor1.setThrottle(i);
-    //     motor2.setThrottle(i);
-    //     motor3.setThrottle(i);
-    // } 
-    // for (i = 400; i >= 200; i--) {
-    //     motor0.setThrottle(i);
-    //     motor1.setThrottle(i);
-    //     motor2.setThrottle(i);
-    //     motor3.setThrottle(i);
-    // }
-    // led.blink(1, 80);
 
     // mpu.update();
     // Serial.println("init");

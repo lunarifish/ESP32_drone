@@ -1,14 +1,14 @@
 #pragma once
 
-#ifndef SERIALMODULE_H
-#define SERIALMODULE_H
+#ifndef COMMMODULE_H
+#define COMMMODULE_H
 
 #include <HardwareSerial.h>
-#include "SerialPacket.h"
+#include "CommPacket.h"
 #include "List.h"
 
-void serialInit();
-void serialReadIntoBuffer();
+void commInit();
+void commReadIntoBuffer();
 void writeInt16(int16_t num);
 void writeByteArray(uint8_t* arr, uint8_t length);
 

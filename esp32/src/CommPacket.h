@@ -1,7 +1,7 @@
 #pragma once
 
-#ifndef SERIALPACKET_H
-#define SERIALPACKET_H
+#ifndef COMMPACKET_H
+#define COMMPACKET_H
 
 #include <cstdint>
 

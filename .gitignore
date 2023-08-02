@@ -1,3 +1,5 @@
 *.psd
 esp32/.pio
 esp32/.vscode
+untracked_temp
+EDA/ESP32_drone_backup

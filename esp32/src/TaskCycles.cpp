@@ -1,5 +1,5 @@
 #include "TaskCycles.h"
-#include "SerialModule.h"
+#include "CommModule.h"
 #include "GlobalDeclarations.h"
 
 

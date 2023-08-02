@@ -1,3 +1,5 @@
+// Config.h
+
 #pragma once
 
 #ifndef CONFIG_H
@@ -5,13 +7,17 @@
 
 #include <cstdint>
 
+/**
+ * Global configurations
+*/
 
-const uint16_t  SERIAL_BAUDRATE        = 9600;
-const uint8_t   SERIAL_RX_PIN          = 25;
-const uint8_t   SERIAL_TX_PIN          = 33;
-const uint8_t   SERIAL_AUX_PIN         = 4;
-const uint8_t   SERIAL_MD0_PIN         = 13;
-const uint8_t   SERIAL_MD1_PIN         = 14;
+
+const uint16_t  AS69_BAUDRATE          = 9600;
+const uint8_t   AS69_RX_PIN            = 25;
+const uint8_t   AS69_TX_PIN            = 33;
+const uint8_t   AS69_AUX_PIN           = 4;
+const uint8_t   AS69_MD0_PIN           = 13;
+const uint8_t   AS69_MD1_PIN           = 14;
 
 
 const uint8_t   MPU6050_SCL_PIN        = 26;

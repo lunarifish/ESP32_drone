@@ -28,7 +28,7 @@ void Motor::init() {
     setPWMDuty(MOTOR_MAXIMUM_THROTTLE);
     delay(2200);
     setPWMDuty(MOTOR_MINIMUM_THROTTLE);
-    delay(8800);
+    delay(10000);
 }
 
 void Motor::initAll() {

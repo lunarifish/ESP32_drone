@@ -19,4 +19,6 @@ extern PID PID_pitch_inner, PID_roll_inner, PID_yaw,
 
 extern Motor motor0, motor1, motor2, motor3;
 
+extern TwoWire I2C_BUS_0, I2C_BUS_1;
+
 #endif

@@ -1,32 +1,33 @@
 #include <HardwareSerial.h>
 #include "Config.h"
-#include "SerialModule.h"
+#include "CommModule.h"
 #include "List.h"
 
 
 HardwareSerial serial(1);
 List serialBuffer;
 
-void serialInit() {
+
+void commInit() {
     serial = HardwareSerial(1);
 
-    serial.begin(SERIAL_BAUDRATE, SERIAL_8N1, SERIAL_RX_PIN, SERIAL_TX_PIN);
+    serial.begin(AS69_BAUDRATE, SERIAL_8N1, AS69_RX_PIN, AS69_TX_PIN);
     serialBuffer.clear();
 
-    pinMode(SERIAL_MD0_PIN, OUTPUT);
-    pinMode(SERIAL_MD1_PIN, OUTPUT);
-    pinMode(SERIAL_AUX_PIN, INPUT);
+    pinMode(AS69_MD0_PIN, OUTPUT);
+    pinMode(AS69_MD1_PIN, OUTPUT);
+    pinMode(AS69_AUX_PIN, INPUT);
 
-    // Wait for serial module to initialize
-    if (digitalRead(SERIAL_AUX_PIN) == LOW) {
+    // Wait for comm module initialization
+    if (digitalRead(AS69_AUX_PIN) == LOW) {
         Serial.println("Radio initiating");
-        while(digitalRead(SERIAL_AUX_PIN) == LOW);
+        while(digitalRead(AS69_AUX_PIN) == LOW);
         Serial.println("Radio initialized");
     }
-        
+
     // Set work mode to normal mode
-    digitalWrite(SERIAL_MD0_PIN, HIGH);
-    digitalWrite(SERIAL_MD1_PIN, LOW);
+    digitalWrite(AS69_MD0_PIN, HIGH);
+    digitalWrite(AS69_MD1_PIN, LOW);
 }
 
 void writeU16(int16_t num) {
