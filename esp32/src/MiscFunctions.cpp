@@ -1,4 +1,5 @@
 #include "MiscFunctions.h"
+#include <mpu6050_dmp.h>
 
 #include "Config.h"
 #include "GlobalDeclarations.h"
@@ -11,10 +12,12 @@ void initI2CDevices() {
     I2C_BUS_0.begin();
     I2C_BUS_1.begin();
 
-    mpu.begin();
-    if (!bmp.begin(0x76)) {
-        Serial.println("Barometer initialization failed");
-        while (true);
-    }
-    mpu.calcGyroOffsets(true);
+    // mpu.begin();
+    // mpu.calcGyroOffsets(true);
+    initMPU6050();
+
+    // if (!bmp.begin(0x76)) {
+    //     Serial.println("Barometer initialization failed");
+    //     while (true);
+    // }
 }

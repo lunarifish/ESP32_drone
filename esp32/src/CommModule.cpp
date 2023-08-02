@@ -11,7 +11,7 @@ List serialBuffer;
 void commInit() {
     serial = HardwareSerial(1);
 
-    serial.begin(AS69_BAUDRATE, SERIAL_8N1, AS69_RX_PIN, AS69_TX_PIN);
+    serial.begin(AS69_BAUDRATE, SERIAL_8N1, AS69_TX_PIN, AS69_RX_PIN);
     serialBuffer.clear();
 
     pinMode(AS69_MD0_PIN, OUTPUT);
@@ -25,7 +25,7 @@ void commInit() {
         Serial.println("Radio initialized");
     }
 
-    // Set work mode to normal mode
+    // Set module to normal mode
     digitalWrite(AS69_MD0_PIN, HIGH);
     digitalWrite(AS69_MD1_PIN, LOW);
 }
@@ -40,4 +40,13 @@ void writeByteArray(uint8_t* arr, uint8_t length) {
     for (int i = 0; i < length; i++) {
         serial.write(arr[i]);
     }
+}
+
+
+void decodeMsg(uint8_t msg) {
+    /***
+     * A FSM algorithm that handles the data stream
+     * coming from controller(ground station)
+    **/
+
 }
